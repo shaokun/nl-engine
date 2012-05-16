@@ -1,0 +1,17 @@
+<table border="1px" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th># of Employees</th>
+    </tr>
+  </thead>
+<% @departments.each do |x| %>
+  <tr>
+    <td><%= link_to x.name, edit_department_path(x) %></td>
+    <td><%= x.employees.count %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "New Department", new_department_path %>
+<%= link_to "Employees", employees_path %>

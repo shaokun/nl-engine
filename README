@@ -1,0 +1,56 @@
+= Hr
+
+This project rocks and uses MIT-LICENSE.
+
+h1. make your namespace less engine: Hr
+
+<pre>
+$ rails plugin new hr --full
+$ rails g resource hr/department name
+$ rails g resource hr/employee first_name last_name department:references
+$ rake db:migrate
+</pre>
+
+<pre>
+module Hr
+  def self.table_name_prefix
+    # 'hr_'
+  end
+end
+
+
+Rails.application.routes.draw do
+  resources :employees
+  resources :departments
+end
+</pre>
+
+
+<pre>
+class DepartmentsController < Hr::DepartmentsController
+end
+
+class Department < Hr::Department
+end
+</pre>
+
+
+<pre>
+$ cd test/dummy/
+$ rails s
+</pre>
+
+
+h2. reuse Hr for Kude company
+
+In your Gemfile
+
+<pre>
+  gem 'hr', :path => "../hr"
+</pre>
+
+<pre>
+$ rake hr_engine:install:migrations
+$ rake db:migrate
+$ rails s
+</pre>

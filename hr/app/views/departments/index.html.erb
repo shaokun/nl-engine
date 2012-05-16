@@ -1,0 +1,7 @@
+<ul>
+<% @departments.each do |x| %>
+  <li><%= link_to x.name, edit_department_path(x) %></li>
+<% end %>
+</ul>
+
+<%= link_to "New Department", new_department_path %>

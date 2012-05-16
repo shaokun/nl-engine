@@ -1,0 +1,6 @@
+<%= form_for @employee do |f| %>
+  First Name: <%= f.text_field :first_name %><br />
+  Last Name: <%= f.text_field :last_name %><br />
+  Department: <%= f.collection_select :department_id, Department.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
