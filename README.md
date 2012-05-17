@@ -3,14 +3,14 @@ This project rocks and uses MIT-LICENSE.
 How to create a Namespace Less Engine
 -------------------------------------
 
-Images that we have HR system that could be reused in different companies projects.
+Imagine that we have HR system that could be reused in different companies' projects.
 
     $ rails plugin new hr --full
     $ rails g resource hr/department name
     $ rails g resource hr/employee first_name last_name department:references
     $ rake db:migrate
 
-Comments out the `table_name_prefix` in `/app/models/hr.rb`. Because I don't want my table names end up being like `hr_deparments`, `hr_employees`.
+Comment out the `table_name_prefix` in `/app/models/hr.rb`. Because I don't want my table names to end up being like `hr_departments`, `hr_employees`.
 
     module Hr
       def self.table_name_prefix
@@ -18,7 +18,7 @@ Comments out the `table_name_prefix` in `/app/models/hr.rb`. Because I don't wan
       end
     end
 
-Do the same things for routes, so that the url don't scoped under `/hr`.
+Do the same things for routes, so that the urls aren't scoped under `/hr`.
 
     Rails.application.routes.draw do
       resources :employees
